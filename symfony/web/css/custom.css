@@ -1,0 +1,38 @@
+/*********************CSS relavant to basic template**************************************/
+.navbar-default{
+/*background-color: rgba(64,153,255,1);*/
+    background-color: #336699;
+    border-bottom: none;
+}
+
+.navbar-default .navbar-brand {
+    color: azure;
+    font-family: TimesNewRoman;
+    font-weight: 700;
+    font-size: 40px;
+
+    font-stretch: ultra-expanded;
+}
+    
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color:aliceblue;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: aliceblue;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: aliceblue;
+    background-color: cornflowerblue;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: transparent;
+}
+
+/*************************************************************************************/
+/*Do not override any panel inside this css file*/

@@ -1,0 +1,42 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 7, 2015, 12:25:26 AM
+    Author     : Yellow Flash
+*/
+
+.profilePicFrame{
+    /*    border: 10px solid #fff;
+        border-bottom-width:40px; */
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 3px 3px 3px #777;
+    border-radius: 4px;
+    /* box-shadow: 3px 3px 3px #777;
+     background-color: rgba(0,0,0,0.5);
+     height: */
+}
+
+.tab-content{
+    background-color: rgba(0,0,0,0.8);
+    border-top-color: royalblue;
+    
+    filter:blur(4px);
+    -o-filter:blur(4px);
+    -ms-filter:blur(4px);
+    -moz-filter:blur(4px);
+    -webkit-filter:blur(4px);
+    
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    color: #fff;
+    cursor: default;
+    background-color: royalblue;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="FriendsTestBundle\Entity\UserMobile" table="user_mobile">
+    <indexes>
+      <index name="email" columns="email"/>
+    </indexes>
+    <id name="mobileNumber" type="string" column="mobile_number" length="10"/>
+    <id name="email" association-key="true"/>
+    <many-to-one field="email" target-entity="Login" inversed-by="mobileNumbers">
+      <join-columns>
+        <join-column name="email" referenced-column-name="email"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

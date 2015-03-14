@@ -1,0 +1,24 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 6, 2015, 9:37:28 PM
+    Author     : Yellow Flash
+*/
+.signUpForm{
+    background-color: rgba(0,0,0,0.5);
+	box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);
+	border-radius: 6px;
+	color: #DADADA;
+    padding: 2em;
+}
+
+body {
+    background-image: url('../img/loginBackground.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+

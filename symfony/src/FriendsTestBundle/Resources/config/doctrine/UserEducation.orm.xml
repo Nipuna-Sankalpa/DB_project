@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="FriendsTestBundle\Entity\UserEducation" table="user_education">
+    <indexes>
+      <index name="institute_ID" columns="institute_ID"/>
+    </indexes>
+    <id name="email" association-key="true"/>
+    <field name="startDate" type="date" column="start_date" nullable="false"/>
+    <field name="endDate" type="date" column="end_date" nullable="false"/>
+    <one-to-one field="email" target-entity="Login">
+      <join-columns>
+        <join-column name="email" referenced-column-name="email"/>
+      </join-columns>
+    </one-to-one>
+    <many-to-one field="institute" target-entity="EducationalInstitute">
+      <join-columns>
+        <join-column name="institute_ID" referenced-column-name="ID"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

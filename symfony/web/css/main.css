@@ -1,0 +1,42 @@
+.navbar-brand.site-title {
+    font-family: kaushan_scriptregular;
+    font-size: 30pt;
+    font-weight: normal;
+    /*text-transform: uppercase;*/
+    /*text-transform: capitalize;*/
+}
+
+/* tab color */
+/*.nav-tabs>li>a {*/
+    /*background-color: #339966;*/
+    /*border-color: #777777;*/
+    /*color:#fff;*/
+/*}*/
+
+/* active tab color */
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    color: #fff;
+    background-color: #339966;
+    border: 1px solid #339966;
+}
+
+/* hover tab color */
+.nav-tabs>li>a:hover, .nav-tabs>li>a:focus {
+    border-color: #CCCCCC;
+    background-color: #CCCCCC;
+    border-bottom: none;
+}
+
+.tab-content {
+    border-top: 1px solid #339966;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-tabs {
+    border-color: #339966;
+}
+
+.panel {
+    padding: 0;
+}

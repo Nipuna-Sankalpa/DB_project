@@ -1,0 +1,15 @@
+friends_test:
+    resource: "@FriendsTestBundle/Resources/config/routing.xml"
+    prefix:   /
+
+friends_profile:
+    resource: "@FriendsProfileBundle/Resources/config/routing.xml"
+    prefix:   /
+
+friends_login:
+    resource: "@FriendsLoginBundle/Resources/config/routing.xml"
+    prefix:   /
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation
