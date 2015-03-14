@@ -10,7 +10,13 @@
     <div class="col-md-2"></div>
 
     <div class="col-md-8">
-        <div class="panel panel-primary">
+        <div class="form-group">
+            {{ form_start(form) }}
+            {{ form_widget(form, { 'attr' : { 'class' : 'form-control' } }) }}
+            {{ form_end(form) }}
+        </div>
+
+        <div class="panel panel-primary box-shadow">
             <div class="panel-heading">
                 <h2 class="panel-title">Posts Feed</h2>
             </div>
