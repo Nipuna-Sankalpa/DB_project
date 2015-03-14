@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new FriendsLoginBundle\FriendsLoginBundle(),
             new FriendsProfileBundle\FriendsProfileBundle(),
             new FriendsTestBundle\FriendsTestBundle(),
+            new FriendsTimelineBundle\FriendsTimelineBundle(),
+            new FriendsEntityBundle\FriendsEntityBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

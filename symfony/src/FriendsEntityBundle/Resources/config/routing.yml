@@ -1,0 +1,3 @@
+friends_entity_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: FriendsEntityBundle:Default:index }

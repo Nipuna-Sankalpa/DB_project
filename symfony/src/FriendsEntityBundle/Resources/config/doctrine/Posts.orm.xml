@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="FriendsEntityBundle\Entity\Posts" table="posts">
+    <indexes>
+      <index name="fkey" columns="user_email"/>
+    </indexes>
+    <id name="postId" type="integer" column="post_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="content" type="text" column="content" nullable="false"/>
+    <field name="timestamp" type="datetime" column="timestamp" nullable="false"/>
+    <many-to-one field="userEmail" target-entity="Profile">
+      <join-columns>
+        <join-column name="user_email" referenced-column-name="user_email"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
