@@ -41,5 +41,9 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+<<<<<<< HEAD
+/symfony/src/FriendsTestBundle/Resources/config/doctrine/Login.orm.xml
+=======
 
 /symfony/.idea
+>>>>>>> b241cefc18b9ff1b0b74bf42ac8c7de78a372cba

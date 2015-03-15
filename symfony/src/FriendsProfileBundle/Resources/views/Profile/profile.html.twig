@@ -1,0 +1,118 @@
+{# empty Twig template #}
+{% extends "::base.html.twig"%}
+
+{% block styleSheet%}<link href="{{asset('css/profileCustom.css')}}" rel="stylesheet">{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-3">
+
+            <div id="image">
+
+                <img src="{{imgPath}}" alt="Profile Picture" class="profilePicFrame img-rounded">
+
+            </div>
+
+            <div id="navBox" style="margin-top: 1em;">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-info">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    View Profile
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <ul>
+                                    <li>Photos</li>
+                                    <li>Friends</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-info">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Setup Profile
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <ul>
+                                    <li>Edit profile</li>
+                                    <li>Settings</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--*************************************************************************************************-->
+
+
+        <div class="col-md-9">
+            <h2>Nipuna sankalpa</h2>
+
+            <div class="panel-body">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#personalSection">Personal</a></li>
+                    <li><a data-toggle="tab" href="#educationSection">Education</a></li>
+                    <li><a data-toggle="tab" href="#workSection">About me</a></li>
+
+                </ul>
+                <div class="tab-content">
+                    <div id="personalSection" class="tab-pane fade in active">
+                        <br />
+                        <dl class="dl-horizontal">
+                            <dt><span class="glyphicon glyphicon-envelope"></span> E-mail :</dt>
+                            <dd>Nipuna Sankalpa</dd>
+                            <dt><span class="glyphicon glyphicon glyphicon-star" ></span> Date of Birth :</dt>
+                            <dd></dd>
+                            <dt><span class="glyphicon glyphicon glyphicon-star" ></span> Gender :</dt>
+                            <dd></dd>
+                            <dt><span class="glyphicon glyphicon glyphicon-star" ></span> Religion :</dt>
+                            <dd></dd>
+                            {#%for %}
+                            <dt><span class="glyphicon glyphicon-phone" ></span> Mobile :</dt>
+                            <dd>{{profile.mobile}}</dd>
+                            {%endfor%#}
+                            <dt><span class="glyphicon glyphicon-home" ></span> Home Address :</dt>
+                            <dd></dd>
+                            <dd></dd>
+                            <dd></dd>
+                            <dt><span class="glyphicon glyphicon-home" ></span> Country :</dt>
+                            <dd></dd>
+                            <dt><span class="glyphicon glyphicon-home" ></span> Lives in :</dt>
+                            <dd></dd>
+                            <dt><span class="glyphicon glyphicon-home" ></span> Relationship Status :</dt>
+                            <dd></dd>
+                        </dl>
+                        <br />
+                    </div>
+                    <div id="educationSection" class="tab-pane fade">
+                        <dl class="dl-horizontal">
+                            <dt><span class="glyphicon glyphicon-bookmark"></span> School  :</dt>
+                            <dd></dd>
+                            <dt><span class="glyphicon glyphicon-bookmark"></span> High School  :</dt>
+                            <dd></dd>
+                        </dl>
+
+                    </div>
+                    <div id="workSection" class="tab-pane fade">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+{% endblock %}
