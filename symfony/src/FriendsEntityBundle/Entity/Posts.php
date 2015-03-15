@@ -106,6 +106,6 @@ class Posts
      */
     public function getUserEmail()
     {
-        return $this->userEmail;
+        return $this->userEmail->getUserEmail();
     }
 }
