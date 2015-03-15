@@ -4,8 +4,16 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="friends_login_homepage" path="/hello/{name}">
+    <route id="friends_login_homepage" path="/">
         <default key="_controller">FriendsLoginBundle:Default:index</default>
+    </route>
+    
+    <route id="friends_signUp" path="/signup">
+        <default key="_controller">FriendsLoginBundle:SignUp:signup</default>
+    </route>
+    
+    <route id="friends_login" path="/login">
+        <default key="_controller">FriendsLoginBundle:Login:login</default>
     </route>
 
 
