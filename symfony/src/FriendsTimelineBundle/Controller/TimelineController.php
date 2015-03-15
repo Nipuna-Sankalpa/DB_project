@@ -19,9 +19,15 @@ class TimelineController extends Controller
         $post = new Posts();
 
         $form = $this->createFormBuilder($post)
-            ->add('content', 'text')
-            ->add('Post', 'submit', array('label' => 'Create Post'))
+            ->add('content', 'textarea')
+            ->add('post', 'submit', array('label' => 'POST'))
             ->getForm();
+
+        $form -> handleRequest($request);
+
+        if($form->isValid()){
+            return $this->redirect($this->generateUrl("post_success"));
+        }
 
         return $this->render('FriendsTimelineBundle:Timeline:timeline.html.twig', array(
             'form' => $form->createView(),
