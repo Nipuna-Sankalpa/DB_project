@@ -3,13 +3,16 @@
 namespace FriendsLoginBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FriendsTestBundle\Entity\Login;
+use FriendsTestBundle\Entity\UserMobile;
 
-class DefaultController extends Controller
-{
-    public function indexAction($name)
-    {
-        
-        
-        return $this->render('FriendsLoginBundle:Default:index.html.twig', array('name' => $name));
+class DefaultController extends Controller {
+
+    public function indexAction() {
+        return $this->render("FriendsLoginBundle:Login:login.html.twig",array(
+            'msg'=>FALSE,
+            'content'=>null
+        ));
     }
+
 }
