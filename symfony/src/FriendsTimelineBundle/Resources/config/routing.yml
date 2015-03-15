@@ -1,0 +1,3 @@
+friends_timeline_homepage:
+    path:     /timeline
+    defaults: { _controller: FriendsTimelineBundle:Timeline:index }

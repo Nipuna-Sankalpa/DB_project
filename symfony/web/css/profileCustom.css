@@ -21,16 +21,12 @@ and open the template in the editor.
 }
 
 .tab-content{
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(255,255,255,0.6);
     border-top-color: royalblue;
     
-    filter:blur(4px);
-    -o-filter:blur(4px);
-    -ms-filter:blur(4px);
-    -moz-filter:blur(4px);
-    -webkit-filter:blur(4px);
-    
+        
 }
+
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {

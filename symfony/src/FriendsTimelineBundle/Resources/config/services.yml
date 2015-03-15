@@ -1,0 +1,4 @@
+services:
+#    friends_timeline.example:
+#        class: FriendsTimelineBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
