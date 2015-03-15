@@ -24,7 +24,6 @@ class Login
      */
     private $profile;
     
-    private $mobile;
     
     
     public function __construct() {
@@ -128,5 +127,43 @@ class Login
     public function getName()
     {
         return $this->name;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $mobileNumbers;
+
+
+    /**
+     * Add mobileNumbers
+     *
+     * @param \FriendsTestBundle\Entity\UserMobile $mobileNumbers
+     * @return Login
+     */
+    public function addMobileNumber(\FriendsTestBundle\Entity\UserMobile $mobileNumbers)
+    {
+        $this->mobileNumbers[] = $mobileNumbers;
+
+        return $this;
+    }
+
+    /**
+     * Remove mobileNumbers
+     *
+     * @param \FriendsTestBundle\Entity\UserMobile $mobileNumbers
+     */
+    public function removeMobileNumber(\FriendsTestBundle\Entity\UserMobile $mobileNumbers)
+    {
+        $this->mobileNumbers->removeElement($mobileNumbers);
+    }
+
+    /**
+     * Get mobileNumbers
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMobileNumbers()
+    {
+        return $this->mobileNumbers;
     }
 }
