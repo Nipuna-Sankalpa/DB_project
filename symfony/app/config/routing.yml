@@ -1,10 +1,10 @@
 friends_test:
     resource: "@FriendsTestBundle/Resources/config/routing.xml"
-    prefix:   /
+    prefix:   /test/
 
 friends_profile:
     resource: "@FriendsProfileBundle/Resources/config/routing.xml"
-    prefix:   /
+    prefix:   /profile/
 
 friends_login:
     resource: "@FriendsLoginBundle/Resources/config/routing.xml"
