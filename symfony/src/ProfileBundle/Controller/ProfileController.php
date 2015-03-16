@@ -124,6 +124,16 @@ class ProfileController extends Controller {
             $entity->setFavoriteDrink($request->get('favoriteDrink'));
             $entity->setFavoriteFood($request->get('favoriteFood'));
             $entity->setFavoriteBook($request->get('favoriteBook'));
+
+            /*             * ****************************upload image**************************** */
+            
+            if ($_FILES['images']['tmp_name']!=NULL) {
+                $entity->setImage($this->uploadImage($_FILES['images']['tmp_name']));
+            }
+
+            /*             * ****************************upload image**************************** */
+
+
             if ($this->checkPassword($request->get('oldpassword'), $request->get('newpassword1'), $request->get('newpassword2'), $entity)) {
                 $entity->setPassword($request->get('newpassword1'));
             } else {
@@ -140,6 +150,21 @@ class ProfileController extends Controller {
                     'edit_form' => $editForm->createView(),
                     'email' => $email,
         ));
+    }
+
+    private function uploadImage($file) {
+
+        $img_size = getimagesize($file);
+        if (isset($file) && $img_size != FALSE) {
+            $fileContent = file_get_contents($file);
+            if ($img_size < 3000000) {
+                return $fileContent;
+            } else {
+                return new Response('size too much');
+            }
+        } else {
+            return new Response('Error');
+        }
     }
 
     private function checkPassword($oldpass, $newpass1, $newpass2, $entity) {
@@ -171,7 +196,7 @@ class ProfileController extends Controller {
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('profile',array('email'=>$email)));
+        return $this->redirect($this->generateUrl('profile', array('email' => $email)));
     }
 
     /**

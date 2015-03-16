@@ -9,7 +9,7 @@
 
             <div id="image">
 
-                <img src="{{imgPath}}" alt="Profile Picture" class="profilePicFrame img-rounded">
+                <img src="{{path('friends_profile_image',{'email': profile.email})}}" alt="Profile Picture" class="profilePicFrame img-rounded" style="width:227px ;height: 277px;">
 
             </div>
 
@@ -44,7 +44,7 @@
                             <div class="panel-body">
                                 <ul>
                                     <li><a href="{{ path('profile_edit', { 'email': profile.email }) }}">Edit profile</a></li>
-                                    
+
                                 </ul>
                             </div>
                         </div>
@@ -62,53 +62,80 @@
 
             <div class="panel-body">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#personalSection">Personal</a></li>
-                    <li><a data-toggle="tab" href="#educationSection">Education</a></li>
+                    <li class="active"><a data-toggle="tab" href="#personalSection">Personal and Education</a></li>
+                    <li><a data-toggle="tab" href="#educationSection">Contacts</a></li>
                     <li><a data-toggle="tab" href="#workSection">About me</a></li>
 
                 </ul>
                 <div class="tab-content">
                     <div id="personalSection" class="tab-pane fade in active">
-                        <br />
-                        <dl class="dl-horizontal">
-                            <dt><span class="glyphicon glyphicon-envelope"></span> E-mail :</dt>
-                            <dd>{{profile.email}}</dd>
-                            <dt><span class="glyphicon glyphicon-star" ></span> Date of Birth :</dt>
-                            <dd>{{profile.dob}}</dd>
-                            <dt><span class="glyphicon glyphicon-star" ></span> Gender :</dt>
-                            <dd>{{profile.gender}}</dd>
-                            <dt><span class="glyphicon glyphicon-star" ></span> Religion :</dt>
-                            <dd>{{profile.religion}}</dd>
+                        <h4 style="background-color: #4099FF ; padding: 2px;margin-left: 2%;">Personal</h4>
+                        <dl class="dl-horizontal" style="margin-left: 25%;">
 
-                            <dt><span class="glyphicon glyphicon-home" ></span> Home Address :</dt>
+                            <dt style="margin-bottom: 3px;"><span class="glyphicon glyphicon-user" ></span> Gender  :</dt>
+                            <dd>{{profile.gender}}</dd>
+                            <dt style="margin-bottom: 3px;"><span class="glyphicon glyphicon-gift" ></span> Date of Birth  :</dt>
+                            <dd>{{profile.dob}}</dd>
+                            <dt style="margin-bottom: 3px;"><span class="glyphicon glyphicon-star" ></span> Religion  :</dt>
+                            <dd>{{profile.religion}}</dd>
+                            <dt style="margin-bottom: 3px;"><span class="glyphicon glyphicon-home" ></span> Home Address  :</dt>
                             <dd>{{profile.streetNumber}}</dd>
                             <dd>{{profile.street}}</dd>
                             <dd>{{profile.hometown}}</dd>
-                            <dt><span class="glyphicon glyphicon-home" ></span> Country :</dt>
+                            <dt style="margin-bottom: 3px;"><span class="glyphicon glyphicon-home" ></span> Country  :</dt>
                             <dd>{{profile.country}}</dd>
-                            <dt><span class="glyphicon glyphicon-home" ></span> Lives in :</dt>
+                            <dt style="margin-bottom: 3px;"><span class="glyphicon glyphicon-home" ></span> Lives in  :</dt>
                             <dd>{{profile.city}}</dd>
-                            <dt><span class="glyphicon glyphicon-heart" ></span> Relationship Status :</dt>
+                            <dt style="margin-bottom: 3px;"><span class="glyphicon glyphicon-heart" ></span>Relationship Status  :</dt>
                             <dd>{{profile.relationshipStatus}}</dd>
+                            <br />
                         </dl>
-                        <br />
-                    </div>
-                    <div id="educationSection" class="tab-pane fade">
-                        <dl class="dl-horizontal">
+                        <h4 style="background-color: #4099FF; padding: 2px;margin-left: 2%;">Educational</h4>
+                        <dl class="dl-horizontal" style="margin-left: 25%;">
+
                             <dt><span class="glyphicon glyphicon-blackboard"></span> School  :</dt>
                             <dd>{{profile.school}}</dd>
                             <dt><span class="glyphicon glyphicon-education"></span> High School :</dt>
                             <dd>{{profile.higherEducation}}</dd>
-                            <dt><span class="glyphicon glyphicon-user"></span> Description  :</dt>
-                            <dd>{{profile.description}}</dd>
+                        </dl>
+                    </div>
+                    <div id="educationSection" class="tab-pane fade" >
+                        <h4 style="background-color: #4099FF; padding: 2px;margin-left: 2%;">Local contacts</h4>
+                        <dl class="dl-horizontal" style="margin-left: 25%;">
+
+                            <dt><span class="glyphicon glyphicon-envelope"></span> E-mail  :</dt>
+                            <dd>{{profile.email}}</dd>
                             <dt><span class="glyphicon glyphicon-phone"></span> Mobile Number  :</dt>
                             <dd>{{profile.mobileNumber}}</dd>
                             <dt><span class="glyphicon glyphicon-phone-alt"></span> Home Number  :</dt>
                             <dd>{{profile.homePhone}}</dd>
-                            <dt><span class="glyphicon glyphicon-bookmark"></span> Blog  :</dt>
-                            <dd>{{profile.blog}}</dd>
-                            <dt><span class="glyphicon glyphicon-bookmark"></span> linked In  :</dt>
-                            <dd>{{profile.higherEducation}}</dd>
+
+                        </dl>
+                        <br />
+                        <h4 style="background-color: #4099FF; padding: 2px;margin-left: 2%;">Global contacts</h4>
+                        <div class="row" style="padding: 1em;">
+                            <div id="blog" class="col-sm-4">
+                                <img src="{{asset('img/blog.png')}}" alt="blog">
+                                <p>Blog</p>
+                            </div>
+
+                            <div id="linkedIn" class="col-sm-3 col-sm-offset-1 ">
+                                <img src="{{asset('img/blog.png')}}" alt="linkedIn">
+                                <p>linkedIn</p>
+                            </div>
+
+                            <div id="FB" class="col-sm-3 col-sm-offset-1">
+                                <img src="{{asset('img/blog.png')}}" alt="facebook">
+                                <p>Facebook</p>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div id="workSection" class="tab-pane fade">
+                        <h4 style="background-color: #4099FF; padding: 2px;margin-left: 2%;">Favourites</h4>
+                        <dl class="dl-horizontal" style="margin-left: 25%;" >
                             <dt><span class="glyphicon glyphicon-knight"></span> Sports  :</dt>
                             <dd>{{profile.favoriteSport}}</dd>
                             <dt><span class="glyphicon glyphicon-expand"></span> Movie  :</dt>
@@ -121,12 +148,11 @@
                             <dd>{{profile.favoriteSong}}</dd>
                             <dt><span class="glyphicon glyphicon-glass"></span> Drink  :</dt>
                             <dd>{{profile.favoriteDrink}}</dd>
-
                         </dl>
-
-                    </div>
-                    <div id="workSection" class="tab-pane fade">
-                        <p></p>
+                        <h4 style="background-color: #4099FF; padding: 2px;margin-left: 2%;">Description</h4>
+                        <p class="dl-horizontal" style="margin-left: 25%;">
+                            {{profile.description}}
+                        </p>
                     </div>
                 </div>
             </div>

@@ -19,7 +19,7 @@ class TimelineController extends Controller {
     public function indexAction(Request $request) {
         $post = new Posts();
         $tmp = $_GET['email'];
-
+        
         /*         * **aquiring logged email****** */
         if (filter_var($tmp, FILTER_VALIDATE_EMAIL)) {
 
@@ -39,17 +39,19 @@ class TimelineController extends Controller {
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $profile = $em->getRepository('FriendsEntityBundle:Profile')->find('pubudu.fernando@gmail.com');
-            $post->setUserEmail($profile);
-            $em->persist($post);
-            $em->flush();
+
+        if($form->isValid()){
+            $em = $this -> getDoctrine() -> getManager();
+            $profile = $em -> getRepository('FriendsEntityBundle:Profile') -> find('pubudu.fernando@gmail.com');
+            $post -> setUserEmail($profile);
+            $em -> persist($post);
+            $em -> flush();
 
             //return $this->redirect($this->generateUrl("post_success"));
+
         }
 
-        $form->get('content')->setData('');
+        $form -> get('content') -> setData('');
 
         return $this->render('FriendsTimelineBundle:Timeline:timeline.html.twig', array(
                     'form' => $form->createView(),

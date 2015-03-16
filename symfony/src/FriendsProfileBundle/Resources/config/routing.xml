@@ -7,4 +7,8 @@
     <route id="friends_profile_homepage" path="/profile/{email}">
         <default key="_controller">FriendsProfileBundle:ProfileHandler:profileHandle</default>
     </route>
+    
+    <route id="friends_profile_image" path="/image/{email}">
+        <default key="_controller">FriendsProfileBundle:ProfileHandler:image</default>
+    </route>
 </routes>

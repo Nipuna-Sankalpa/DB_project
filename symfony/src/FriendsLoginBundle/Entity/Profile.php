@@ -234,6 +234,7 @@ class Profile
      */
     public function getImage()
     {
+        
         return $this->image;
     }
 
