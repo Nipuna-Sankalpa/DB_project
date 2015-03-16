@@ -33,15 +33,20 @@
             </div>
         </div>
 
+        {% for post in posts %}
+
+
         <div class="panel panel-primary box-shadow">
             <div class="panel-heading">
-                <h2 class="panel-title">Posts Feed</h2>
+                <h2 class="panel-title">{{ post.userEmail.firstName ~ " " ~ post.userEmail.lastName  }}</h2>
             </div>
 
             <div class="panel-body">
-                <p>Posts body</p>
+                <p>{{ post.content }}</p>
             </div>
         </div>
+
+        {% endfor %}
 
         <div class="panel panel-primary">
             <div class="panel-heading">
