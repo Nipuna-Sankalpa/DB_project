@@ -52,8 +52,7 @@ class TimelineController extends Controller {
             $em->persist($post);
             $em->flush();
 
-            return $this->redirect($this->generateUrl("friends_timeline_homepage"));
-//            return new RedirectResponse('timeline',200,array('email'=>$userMail));
+//            return $this->redirect($this->generateUrl("friends_timeline_homepage"), array('email'=>$userMail));
         }
 
 //        $form -> get('content') -> setData('');
