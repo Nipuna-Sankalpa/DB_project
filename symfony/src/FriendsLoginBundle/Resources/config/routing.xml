@@ -16,5 +16,14 @@
         <default key="_controller">FriendsLoginBundle:Login:login</default>
     </route>
 
+    <route id="admin" path="/admin">
+        <default key="_controller">FriendsLoginBundle:Default:admin</default>
+    </route>
+
+    <route id="login_route" path="/login2">
+        <default key="_controller">FriendsLoginBundle:Security:login</default>
+    </route>
+
+    <route id="login_check" path="/login_check" />
 
 </routes>

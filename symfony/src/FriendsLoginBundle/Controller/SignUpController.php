@@ -3,7 +3,7 @@
 namespace FriendsLoginBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use FriendsLoginBundle\Entity\Profile;
+use FriendsEntityBundle\Entity\Profile;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
