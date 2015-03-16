@@ -19,3 +19,20 @@ button {
 .panel-body {
     text-align: justify;
 }
+
+.btn {
+    font-weight: bold;
+}
+
+h2.panel-title {
+    margin-right: 50%;
+}
+
+p.pull-right {
+    padding-bottom: 20px;
+    margin: 0;
+}
+
+.panel-heading .row {
+    height: 1.5em;
+}

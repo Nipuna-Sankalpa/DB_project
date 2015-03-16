@@ -10,9 +10,11 @@
 namespace FriendsTimelineBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use FriendsEntityBundle\Entity\Posts;
 use FriendsEntityBundle\Entity\Profile;
+use Symfony\Component\HttpFoundation\Response;
 
 class TimelineController extends Controller {
 
@@ -20,6 +22,7 @@ class TimelineController extends Controller {
         $post = new Posts();
         $tmp = $_GET['email'];
         $userMail = null;
+
         /*         * **aquiring logged email****** */
         if (filter_var($tmp, FILTER_VALIDATE_EMAIL)) {
 
@@ -27,7 +30,6 @@ class TimelineController extends Controller {
         } else {
             // decide where you want to go
         }
-
 
         /*         * **aquiring logged email****** */
 
@@ -46,11 +48,11 @@ class TimelineController extends Controller {
             $em->persist($post);
             $em->flush();
 
-            //return $this->redirect($this->generateUrl("post_success"));
+            return $this->redirect($this->generateUrl("friends_timeline_homepage"));
+//            return new RedirectResponse('timeline',200,array('email'=>$userMail));
         }
 
 //        $form -> get('content') -> setData('');
-
 
         return $this->render('FriendsTimelineBundle:Timeline:timeline.html.twig', array(
                     'form' => $form->createView(),
@@ -65,7 +67,7 @@ class TimelineController extends Controller {
 
         $form = $this->createFormBuilder($post)
                 ->add('post', 'text')
-                ->add('Post', 'submit', array('label' => 'Create Post'))
+//                ->add('Post', 'submit', array('label' => 'Create Post'))
                 ->getForm();
 
         return $this->render('FriendsTimelineBundle:Timeline:timeline.html.twig', array(
@@ -75,7 +77,9 @@ class TimelineController extends Controller {
 
     private function getPosts(){
         $em = $this -> getDoctrine() -> getManager();
-        $posts = $em -> getRepository('FriendsEntityBundle:Posts') -> findAll();
-        return $posts;
+//        $posts = $em -> getRepository('FriendsEntityBundle:Posts') -> findAll();
+        $query = $em->createQuery("SELECT p FROM FriendsEntityBundle\\Entity\\Posts p ORDER BY p.timestamp DESC ");
+        $articles = $query->getResult();
+        return $articles;
     }
 }
