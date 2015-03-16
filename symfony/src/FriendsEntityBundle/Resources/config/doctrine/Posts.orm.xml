@@ -11,7 +11,7 @@
     <field name="timestamp" type="datetime" column="timestamp" nullable="false"/>
     <many-to-one field="userEmail" target-entity="Profile">
       <join-columns>
-        <join-column name="user_email" referenced-column-name="user_email"/>
+        <join-column name="user_email" referenced-column-name="email"/>
       </join-columns>
     </many-to-one>
   </entity>

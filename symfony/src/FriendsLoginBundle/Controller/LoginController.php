@@ -15,20 +15,22 @@ class LoginController extends Controller {
         if ($req->getMethod() == "POST") {
             $user_mail = $req->get('mail');
             $user_pass = sha1($req->get('password'));
-        }
-//derive entity manager
-        $em = $this->getDoctrine()->getEntityManager();
-        $repository = $em->getRepository('FriendsLoginBundle:Profile');
-        $user = $repository->findOneBy(array('email' => $user_mail, 'password' => $user_pass));
 
-        if ($user) {
-            //if user exist redirect to profile
-            return new Response('Login completed');
-        } else {
-            //render sign up page with error message
-            return new Response('Login Error');
+//derive entity manager
+            $em = $this->getDoctrine()->getEntityManager();
+            $repository = $em->getRepository('FriendsEntityBundle:Profile');
+            $user = $repository->findOneBy(array('email' => $user_mail, 'password' => $user_pass));
+
+            if ($user) {
+                //if user exist redirect to profile
+                return new Response('Login completed'.($this->getUser()->getUsername()));
+            } else {
+                //render sign up page with error message
+                return new Response('Login Error');
+            }
         }
-        
+
+        return $this -> render('FriendsLoginBundle:Login:login.html.twig');
     }
 
 }

@@ -36,7 +36,7 @@ class TimelineController extends Controller
             //return $this->redirect($this->generateUrl("post_success"));
         }
 
-        $form -> get('content') -> setData('');
+//        $form -> get('content') -> setData('');
 
         return $this->render('FriendsTimelineBundle:Timeline:timeline.html.twig', array(
             'form' => $form->createView(),
