@@ -4,6 +4,10 @@
     {{path('friends_profile_homepage',{'email':email})}}
 {% endblock%}
 
+{% block linkTimeLine%}
+    {{ path('friends_timeline_homepage', { 'email': profile.email }) }}
+{% endblock%}
+
 {% block styleSheet%}
     <link href="{{asset('css/profileCustom.css')}}" rel="stylesheet">
 {% endblock %}

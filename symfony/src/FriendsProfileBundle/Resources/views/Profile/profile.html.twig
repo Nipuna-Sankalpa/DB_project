@@ -1,5 +1,8 @@
 {# empty Twig template #}
 {% extends "::base.html.twig"%}
+{% block linkTimeLine%}
+{{ path('friends_timeline_homepage', { 'email': profile.email }) }}
+{% endblock%}
 
 {% block styleSheet%}<link href="{{asset('css/profileCustom.css')}}" rel="stylesheet">{% endblock %}
 
@@ -26,7 +29,7 @@
                         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
                                 <ul>
-                                    <li>My Posts</li>
+                                    <li><a href="{{ path('friends_timeline_homepage', { 'email': profile.email }) }}">My Posts</li>
                                     <li><a href="{{ path('profile', { 'email': profile.email }) }}">Friends</a></li>
                                 </ul>
                             </div>

@@ -8,53 +8,57 @@
     {{path('friends_profile_homepage',{'email':email})}}
 {% endblock%}
 
+{% block linkTimeLine%}
+    {{ path('friends_timeline_homepage', { 'email': profile.email }) }}
+{% endblock%}
+
 {% block body -%}
     <div class="row">
         <div class="col-md-3">
             <img src="{{path('friends_profile_image',{'email': email})}}" alt="Profile Picture" class="profilePicFrame img-rounded" style="width:227px ;height: 277px;">
             <div>
                 <div id="navBox" style="margin-top: 1em;">
-                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="panel panel-info">
-                        <div class="panel-heading" role="tab" id="headingOne">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    View Profile
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                            <div class="panel-body">
-                                <ul>
-                                    <li>My Posts</li>
-                                    <li><a href="{{path('friends_profile_homepage',{'email':email})}}">Profile</a></li>
-                                </ul>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-info">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        View Profile
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li><a href="{{ path('friends_timeline_homepage', { 'email': profile.email }) }}">My Posts</li>
+                                        <li><a href="{{path('friends_profile_homepage',{'email':email})}}">Profile</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel panel-info">
-                        <div class="panel-heading" role="tab" id="headingTwo">
-                            <h4 class="panel-title">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Setup Profile
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                            <div class="panel-body">
-                                <ul>
-                                    <li><a href="{{ path('profile_edit', { 'email': email }) }}">Edit profile</a></li>
+                        <div class="panel panel-info">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Setup Profile
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li><a href="{{ path('profile_edit', { 'email': email }) }}">Edit profile</a></li>
 
-                                </ul>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
             </div>
-                
-            </div>
-            
+
         </div>
 
         <div class="col-md-9">
@@ -69,7 +73,7 @@
                             <div>
                                 <p><span class="glyphicon glyphicon-map-marker"></span> Lives in {{ entity.hometown }}</p>
                                 <p><span class="glyphicon glyphicon-comment"></span> Description : {{ entity.description }}</p>
-                                
+
                                 <a href="{{ path('profile_show', { 'email': entity.email }) }}" class="btn btn-info" style="float: right; margin-right: 20px; margin-top: -25px">View Full Profile >></a>
                             </div>
                             <div style="clear: left;"></div>

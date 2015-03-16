@@ -22,13 +22,15 @@ class TimelineController extends Controller {
         $post = new Posts();
         $tmp = $_GET['email'];
 
-        
         $userMail = null;
+
 
         /*         * **aquiring logged email****** */
         if (filter_var($tmp, FILTER_VALIDATE_EMAIL)) {
 
             $userMail = $tmp;
+            $em = $this->getDoctrine()->getManager();
+            $profile = $em->getRepository('FriendsEntityBundle:Profile')->find($userMail);
         } else {
             // decide where you want to go
         }
@@ -44,10 +46,8 @@ class TimelineController extends Controller {
         $form->handleRequest($request);
 
 
-
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $profile = $em->getRepository('FriendsEntityBundle:Profile')->find($userMail);
+            
             $post->setUserEmail($profile);
             $em->persist($post);
             $em->flush();
@@ -62,7 +62,8 @@ class TimelineController extends Controller {
         return $this->render('FriendsTimelineBundle:Timeline:timeline.html.twig', array(
                     'form' => $form->createView(),
                     'email' => $userMail,
-                    'posts' => $this -> getPosts(),
+                    'posts' => $this->getPosts(),
+                    'profile' => $profile,
         ));
     }
 
@@ -80,11 +81,12 @@ class TimelineController extends Controller {
         ));
     }
 
-    private function getPosts(){
-        $em = $this -> getDoctrine() -> getManager();
+    private function getPosts() {
+        $em = $this->getDoctrine()->getManager();
 //        $posts = $em -> getRepository('FriendsEntityBundle:Posts') -> findAll();
         $query = $em->createQuery("SELECT p FROM FriendsEntityBundle\\Entity\\Posts p ORDER BY p.timestamp DESC ");
         $articles = $query->getResult();
         return $articles;
     }
+
 }
