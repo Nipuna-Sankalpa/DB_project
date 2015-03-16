@@ -23,10 +23,12 @@ class LoginController extends Controller {
 
         if ($user) {
             //if user exist redirect to profile
-            return new Response('Login completed');
+            return $this->redirect($this->generateUrl("friends_timeline_homepage",array('email'=>$user_mail)));
         } else {
             //render sign up page with error message
-            return new Response('Login Error');
+            return $this->render('FriendsLoginBundle:Login:login.html.twig', array('msg' => TRUE,
+                        'content' =>"login credentials"
+            ));
         }
         
     }

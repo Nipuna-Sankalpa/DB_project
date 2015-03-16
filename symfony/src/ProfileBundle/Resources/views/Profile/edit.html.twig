@@ -1,0 +1,138 @@
+{% extends '::base.html.twig' %}
+
+{% block linkProfile%}
+{{path('friends_profile_homepage',{'email':email})}}
+{% endblock%}
+
+{% block styleSheet%}
+<link href="{{asset('css/profileCustom.css')}}" rel="stylesheet">
+{% endblock %}
+
+
+{% block body %} 
+    <div class="container">    
+        <form class="form-signin" method="POST" action="{{path('profile_update', { 'email': entity.email })}}" data-validate="parsley">
+            <h2 style="font-family:  Trebuchet MS, Arial, Helvetica, sans-serif;">{{entity.firstName}} {{entity.lastName}}</h2>            
+            <div class="panel-body">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#personalSection">Personal and Education</a></li>
+                    <li><a data-toggle="tab" href="#educationSection">Contact Info</a></li>
+                    <li><a data-toggle="tab" href="#workSection">About me</a></li>
+                    <li><a data-toggle="tab" href="#passwordSection">Password</a></li>
+                </ul>
+
+                <div class="tab-content">                    
+                    <div id="personalSection" class="tab-pane fade in active">
+                        <dl class="dl-horizontal" style="margin-top: 10px">    
+                            <div class="row">
+                                <div class="col-md-5 col-md-offset-1">
+                                    <p style="font-family:  Trebuchet MS, Arial, Helvetica, sans-serif; font-size: 20px"><b>Personal:</b></p>
+                                    <dt id="dtid"><span class="glyphicon glyphicon-user"></span> First Name : </dt>
+                                    <dd><input type="text" class="form-control" value="{{ entity.firstName}} " name="firstName"/></dd><br/>
+
+                                    <dt id="dtid"><span class="glyphicon glyphicon-user"></span> Last Name : </dt>
+                                    <dd><input type="text" class="form-control" value="{{ entity.lastName}} " name="lastName"/></dd><br/>
+
+                                    <dt id="dtid"><span class="glyphicon glyphicon-home"></span> Hometown : </dt>
+                                    <dd><input type="text" class="form-control" value="{{ entity.hometown}} " name="hometown"/></dd><br/>
+
+                                    <dt id="dtid"><span class="glyphicon glyphicon-flag"></span> Country : </dt>
+                                    <dd><input type="text" class="form-control" value="{{ entity.country}} " name="country"/></dd><br/>
+
+                                    <dt id="dtid"><span class="glyphicon glyphicon-flag"></span> Birthday : </dt>
+                                    <dd><input type="text" class="form-control" value="{{ entity.dob}} " name="dob"/></dd><br/>
+
+                                    <dt id="dtid"><span class="glyphicon glyphicon-user"></span> Gender : </dt>
+                                    <dd><input type="text" class="form-control" value="{{ entity.gender}} " name="gender"/></dd><br/>
+                                </div>
+                                <div class="col-md-5 col-md-offset-1">
+                                    <p style="font-family:  Trebuchet MS, Arial, Helvetica, sans-serif; font-size: 20px"><b>Education:</b></p>
+
+                                    <dt id="dtid"><span class="glyphicon glyphicon-book"></span> School : </dt>
+                                    <dd><input type="text" class="form-control" value="{{ entity.school}} " name="school"/></dd><br/>
+
+                                    <dt id="dtid"><span class="glyphicon glyphicon-education"></span> Higer Education : </dt>
+                                    <dd><input type="text" class="form-control" value="{{ entity.higherEducation}} " name="higherEducation"/></dd><br/>  
+                                </div>
+                            </div>
+                        </dl>
+                    </div>
+
+
+                    <div id="educationSection" class="tab-pane fade">
+                        <dl class="dl-horizontal" style="margin-top: 10px">     
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-phone"></span> Mobile : </dt>
+                            <dd><input type="text" class="form-control" value="{{ entity.mobileNumber}} " name="mobileNumber"/></dd><br/>
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-phone-alt"></span> Home Phone : </dt>
+                            <dd><input type="text" class="form-control" value="{{ entity.homePhone}} " name="homePhone"/></dd><br/>
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-arrow-right"></span> Street Number : </dt>
+                            <dd><input type="text" class="form-control" value="{{ entity.streetNumber}} " name="streetNumber"/></dd><br/>
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-arrow-right"></span> Street : </dt>
+                            <dd><input type="text" class="form-control" value="{{ entity.street}} " name="street"/></dd><br/>
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-arrow-right"></span> City : </dt>
+                            <dd><input type="text" class="form-control" value="{{ entity.city}} " name="city"/></dd><br/>
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-arrow-up"></span> LinkedIn : </dt>
+                            <dd><input type="text" class="form-control" value="{{ entity.linkedin}} " name="linkedIn"/></dd><br/>
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-bookmark"></span> Blog : </dt>
+                            <dd><input type="text" class="form-control" value="{{ entity.blog}} " name="blog"/></dd><br/>
+
+                        </dl>
+                    </div>
+
+                    <div id="workSection" class="tab-pane fade">
+                        <dl class="dl-horizontal" style="margin-top: 10px">                   
+                            <dt id="dtid"><span class="glyphicon glyphicon-user"></span> Description : </dt>
+                            <dd><input type="text" class="form-control" value="{{ entity.description}} " name="description"/></dd><br/>
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-heart"></span> Relationship : </dt>
+                            <dd><input type="text" class="form-control" value="{{ entity.relationshipStatus}} " name="relationship"/></dd><br/>
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-tower"></span> Religious View </dt>
+                            <dd><input type="text" class="form-control" value="{{ entity.religion}} " name="religion"/></dd><br/>
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-arrow-right"></span> Favorite Book : </dt>
+                            <dd><input type="text" class="form-control" value="{{ entity.favoriteBook}} " name="favoriteBook"/></dd><br/>
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-arrow-right"></span> Favorite Film : </dt>
+                            <dd><input type="text" class="form-control" value="{{ entity.favoriteFilm}} " name="favoriteFilm"/></dd><br/>
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-arrow-up"></span> Favorite Song : </dt>
+                            <dd><input type="text" class="form-control" value="{{ entity.favoriteSong}} " name="favoriteSong"/></dd><br/>
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-bookmark"></span> Favorite Sport : </dt>
+                            <dd><input type="text" class="form-control" value="{{ entity.favoriteSport}} " name="favoriteSport"/></dd><br/>
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-bookmark"></span> Favorite Food : </dt>
+                            <dd><input type="text" class="form-control" value="{{ entity.favoriteFood}} " name="favoriteFood"/></dd><br/>
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-bookmark"></span> Favorite Drink : </dt>
+                            <dd><input type="text" class="form-control" value="{{ entity.favoriteDrink}} " name="favoriteDrink"/></dd><br/>
+                        </dl>
+                    </div>
+
+                    <div id="passwordSection" class="tab-pane fade">
+                        <dl class="dl-horizontal" style="margin-top: 10px">                   
+                            <dt id="dtid"><span class="glyphicon glyphicon-arrow-right"></span> Current Password : </dt>                            
+                            <dd><input type="password" name="oldpassword" class="form-control"/></dd><br/>
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-check"></span> New Password : </dt>                            
+                            <dd><input type="password" name="newpassword1" class="form-control"/></dd><br/>
+
+                            <dt id="dtid"><span class="glyphicon glyphicon-duplicate"></span> Re-enter Password : </dt>                            
+                            <dd><input type="password" name="newpassword2" class="form-control"/></dd>
+                        </dl>
+                    </div>
+
+                </div>
+            </div>            
+            <button class="btn btn-success" type="submit" style="margin-left: 880px; margin-top: -55px">Update</button>            
+        </form>
+    </div> 
+{% endblock %}

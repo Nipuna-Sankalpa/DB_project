@@ -26,8 +26,8 @@
                         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
                                 <ul>
-                                    <li>Photos</li>
-                                    <li>Friends</li>
+                                    <li>My Posts</li>
+                                    <li><a href="{{ path('profile', { 'email': profile.email }) }}">Friends</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -43,8 +43,8 @@
                         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                             <div class="panel-body">
                                 <ul>
-                                    <li>Edit profile</li>
-                                    <li>Settings</li>
+                                    <li><a href="{{ path('profile_edit', { 'email': profile.email }) }}">Edit profile</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
 
 
         <div class="col-md-9">
-            <h2>Nipuna sankalpa</h2>
+            <h2>{{profile.firstName}} {{profile.lastName}}</h2>
 
             <div class="panel-body">
                 <ul class="nav nav-tabs">
@@ -72,36 +72,56 @@
                         <br />
                         <dl class="dl-horizontal">
                             <dt><span class="glyphicon glyphicon-envelope"></span> E-mail :</dt>
-                            <dd>Nipuna Sankalpa</dd>
-                            <dt><span class="glyphicon glyphicon glyphicon-star" ></span> Date of Birth :</dt>
-                            <dd></dd>
-                            <dt><span class="glyphicon glyphicon glyphicon-star" ></span> Gender :</dt>
-                            <dd></dd>
-                            <dt><span class="glyphicon glyphicon glyphicon-star" ></span> Religion :</dt>
-                            <dd></dd>
-                            {#%for %}
-                            <dt><span class="glyphicon glyphicon-phone" ></span> Mobile :</dt>
-                            <dd>{{profile.mobile}}</dd>
-                            {%endfor%#}
+                            <dd>{{profile.email}}</dd>
+                            <dt><span class="glyphicon glyphicon-star" ></span> Date of Birth :</dt>
+                            <dd>{{profile.dob}}</dd>
+                            <dt><span class="glyphicon glyphicon-star" ></span> Gender :</dt>
+                            <dd>{{profile.gender}}</dd>
+                            <dt><span class="glyphicon glyphicon-star" ></span> Religion :</dt>
+                            <dd>{{profile.religion}}</dd>
+
                             <dt><span class="glyphicon glyphicon-home" ></span> Home Address :</dt>
-                            <dd></dd>
-                            <dd></dd>
-                            <dd></dd>
+                            <dd>{{profile.streetNumber}}</dd>
+                            <dd>{{profile.street}}</dd>
+                            <dd>{{profile.hometown}}</dd>
                             <dt><span class="glyphicon glyphicon-home" ></span> Country :</dt>
-                            <dd></dd>
+                            <dd>{{profile.country}}</dd>
                             <dt><span class="glyphicon glyphicon-home" ></span> Lives in :</dt>
-                            <dd></dd>
-                            <dt><span class="glyphicon glyphicon-home" ></span> Relationship Status :</dt>
-                            <dd></dd>
+                            <dd>{{profile.city}}</dd>
+                            <dt><span class="glyphicon glyphicon-heart" ></span> Relationship Status :</dt>
+                            <dd>{{profile.relationshipStatus}}</dd>
                         </dl>
                         <br />
                     </div>
                     <div id="educationSection" class="tab-pane fade">
                         <dl class="dl-horizontal">
-                            <dt><span class="glyphicon glyphicon-bookmark"></span> School  :</dt>
-                            <dd></dd>
-                            <dt><span class="glyphicon glyphicon-bookmark"></span> High School  :</dt>
-                            <dd></dd>
+                            <dt><span class="glyphicon glyphicon-blackboard"></span> School  :</dt>
+                            <dd>{{profile.school}}</dd>
+                            <dt><span class="glyphicon glyphicon-education"></span> High School :</dt>
+                            <dd>{{profile.higherEducation}}</dd>
+                            <dt><span class="glyphicon glyphicon-user"></span> Description  :</dt>
+                            <dd>{{profile.description}}</dd>
+                            <dt><span class="glyphicon glyphicon-phone"></span> Mobile Number  :</dt>
+                            <dd>{{profile.mobileNumber}}</dd>
+                            <dt><span class="glyphicon glyphicon-phone-alt"></span> Home Number  :</dt>
+                            <dd>{{profile.homePhone}}</dd>
+                            <dt><span class="glyphicon glyphicon-bookmark"></span> Blog  :</dt>
+                            <dd>{{profile.blog}}</dd>
+                            <dt><span class="glyphicon glyphicon-bookmark"></span> linked In  :</dt>
+                            <dd>{{profile.higherEducation}}</dd>
+                            <dt><span class="glyphicon glyphicon-knight"></span> Sports  :</dt>
+                            <dd>{{profile.favoriteSport}}</dd>
+                            <dt><span class="glyphicon glyphicon-expand"></span> Movie  :</dt>
+                            <dd>{{profile.favoriteSport}}</dd>
+                            <dt><span class="glyphicon glyphicon-book"></span> Book  :</dt>
+                            <dd>{{profile.favoriteSport}}</dd>
+                            <dt><span class="glyphicon glyphicon-apple"></span> Food  :</dt>
+                            <dd>{{profile.favoriteFood}}</dd>
+                            <dt><span class="glyphicon glyphicon-headphones"></span> Song  :</dt>
+                            <dd>{{profile.favoriteSong}}</dd>
+                            <dt><span class="glyphicon glyphicon-glass"></span> Drink  :</dt>
+                            <dd>{{profile.favoriteDrink}}</dd>
+
                         </dl>
 
                     </div>

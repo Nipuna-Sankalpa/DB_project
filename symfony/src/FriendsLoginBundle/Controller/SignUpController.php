@@ -10,25 +10,32 @@ use Symfony\Component\HttpFoundation\Request;
 class SignUpController extends Controller {
 
     public function signupAction(Request $req) {
-        $profile=new Profile();
+        $profile = new Profile();
 
-        if ($req->getMethod()=='POST') {
-            $profile->setEmail($req->get('email'));
+        if ($req->getMethod() == 'POST') {
+
+            try {
+                $profile->setEmail($req->get('email'));
+            } catch (Exception $exc) {
+                return $this->render('FriendsLoginBundle:Login:login.html.twig', array('msg' => TRUE,
+                            'content' => "e-mail.It is already exist"
+                ));
+            }
+
             $profile->setFirstName($req->get('first_name'));
             $profile->setLastName($req->get('last_name'));
             $profile->setPassword(sha1($req->get('password')));
-            
-            $em=$this->getDoctrine()->getManager();
+
+            $em = $this->getDoctrine()->getManager();
             $em->persist($profile);
             $em->flush();
-            
-            return new Response('sign up completed');
+
+            return $this->redirect($this->generateUrl("profile_edit",array('email'=>$req->get('email'))));
+        } else {
+            return $this->render('FriendsLoginBundle:Login:login.html.twig', array('msg' => TRUE,
+                        'content' => "SignUp"
+            ));
         }
-        
-        else{
-            return new Response('sign up Error');
-        }
-        
     }
 
 }

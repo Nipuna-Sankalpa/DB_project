@@ -1,0 +1,7 @@
+profile_profile:
+    resource: "@ProfileBundle/Resources/config/routing/profile.yml"
+    prefix:   /profile
+
+profile_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ProfileBundle:Default:index }
