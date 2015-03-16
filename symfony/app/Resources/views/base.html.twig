@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <title>Welcome Friends</title>
+        <title>Welcome Friends</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('fonts/fonts.css')}}" rel="stylesheet">
-    <link href="{{asset('css/custom.css')}}"  rel="stylesheet">
-    <link href="{{asset('css/main.css')}}" rel="stylesheet">
+        <!-- Bootstrap Core CSS -->
+        <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{asset('fonts/fonts.css')}}" rel="stylesheet">
+        <link href="{{asset('css/custom.css')}}"  rel="stylesheet">
+        <link href="{{asset('css/main.css')}}" rel="stylesheet">
 
-    
-    <style>
 
-        body {
-            margin-top: 70px;
-            {%block bodyStyle%}background-image: url({{asset('img/background.jpg')}});{% endblock %}
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
+        <style>
 
-            /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-        }
-        
-        
+            body {
+                margin-top: 70px;
+                {%block bodyStyle%}background-image: url({{asset('img/background.jpg')}});{% endblock %}
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
 
-    </style>
-    
-    <!-- Custom CSS -->
+                /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+            }
+
+
+
+        </style>
+
+        <!-- Custom CSS -->
     {% block styleSheet%}{% endblock %}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -48,67 +48,65 @@
 
 <body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand site-title" href="#">friends</a>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand site-title" href="#">friends</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                {% block navBar%}
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="{% block linkTimeLine%}{% endblock%}">Timeline</a>
+                        </li>
+                        <li>
+                            <a href="{% block linkProfile%}{% endblock%}">Profile</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Logout</a>
+                        </li>
+                    </ul>
+                {% endblock%}
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-            {% block navBar%}
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Timeline</a>
-                    </li>
-                    <li>
-                        <a href="#">Profile</a>
-                    </li>
-                    <li>
-                        <a href="#">Settings</a>
-                    </li>
-                    <li>
-                        <a href="#">Logout</a>
-                    </li>
-                </ul>
-            {% endblock%}
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container {% block panelStyle%}{% endblock %}">
+        <!--include content here -->
+        {% block body %}
+            <div class="row">
+
+                <div class="col-lg-12 text-center">
+                    <h1>A Bootstrap Starter Template</h1>
+                    <p class="lead">Complete with pre-defined file paths that you won't have to change!</p>
+                    <ul class="list-unstyled">
+                        <li>Bootstrap v3.3.1</li>
+                        <li>jQuery v1.11.1</li>
+                    </ul>
+                </div>
+            {% endblock %}
         </div>
-        <!-- /.navbar-collapse -->
+        <!-- /.row -->
+
     </div>
     <!-- /.container -->
-</nav>
-
-<!-- Page Content -->
-<div class="container {% block panelStyle%}{% endblock %}">
-    <!--include content here -->
-    {% block body %}
-    <div class="row">
-
-        <div class="col-lg-12 text-center">
-            <h1>A Bootstrap Starter Template</h1>
-            <p class="lead">Complete with pre-defined file paths that you won't have to change!</p>
-            <ul class="list-unstyled">
-                <li>Bootstrap v3.3.1</li>
-                <li>jQuery v1.11.1</li>
-            </ul>
-        </div>
-        {% endblock %}
-    </div>
-    <!-- /.row -->
-
-</div>
-<!-- /.container -->
 
 
-<!-- jQuery Version 1.11.1 -->
-<script src="{{asset('js/jquery.js')}}"></script>
+    <!-- jQuery Version 1.11.1 -->
+    <script src="{{asset('js/jquery.js')}}"></script>
 
 {% block javascripts %}{% endblock %}
 <!-- Bootstrap Core JavaScript -->

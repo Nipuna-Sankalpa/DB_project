@@ -1,0 +1,185 @@
+ProfileBundle\Entity\Profile:
+    type: entity
+    table: profile
+    id:
+        email:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        firstName:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+            column: first_name
+        lastName:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            comment: ''
+            column: last_name
+        password:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        image:
+            type: blob
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        streetNumber:
+            type: string
+            nullable: true
+            length: 10
+            fixed: false
+            comment: ''
+            column: street_number
+        street:
+            type: string
+            nullable: true
+            length: 30
+            fixed: false
+            comment: ''
+        city:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+            comment: ''
+        country:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+            comment: ''
+        dob:
+            type: string
+            nullable: true
+            length: 10
+            fixed: false
+            comment: ''
+        relationshipStatus:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+            comment: ''
+            column: relationship_status
+        hometown:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+            comment: ''
+        gender:
+            type: string
+            nullable: true
+            length: 6
+            fixed: false
+            comment: ''
+        religion:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+            comment: ''
+        description:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+            comment: ''
+        mobileNumber:
+            type: string
+            nullable: true
+            length: 10
+            fixed: false
+            comment: ''
+            column: mobile_number
+        homePhone:
+            type: string
+            nullable: true
+            length: 10
+            fixed: false
+            comment: ''
+            column: home_phone
+        school:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+            comment: ''
+        higherEducation:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+            comment: ''
+            column: higher_education
+        blog:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+        linkedin:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            comment: ''
+            column: linkedIn
+        favoriteSport:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+            comment: ''
+            column: favorite_sport
+        favoriteFilm:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+            comment: ''
+            column: favorite_film
+        favoriteBook:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+            comment: ''
+            column: favorite_book
+        favoriteFood:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+            comment: ''
+            column: favorite_food
+        favoriteSong:
+            type: string
+            nullable: true
+            length: 30
+            fixed: false
+            comment: ''
+            column: favorite_song
+        favoriteDrink:
+            type: string
+            nullable: true
+            length: 30
+            fixed: false
+            comment: ''
+            column: favorite_drink
+    lifecycleCallbacks: {  }

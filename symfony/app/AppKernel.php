@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new FriendsTestBundle\FriendsTestBundle(),
             new FriendsTimelineBundle\FriendsTimelineBundle(),
             new FriendsEntityBundle\FriendsEntityBundle(),
+            new ProfileBundle\ProfileBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

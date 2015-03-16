@@ -1,3 +1,7 @@
+profile:
+    resource: "@ProfileBundle/Resources/config/routing/profile.yml"
+    prefix:   /profile/
+
 friends_entity:
     resource: "@FriendsEntityBundle/Resources/config/routing.yml"
     prefix:   /
@@ -12,11 +16,12 @@ friends_test:
 
 friends_profile:
     resource: "@FriendsProfileBundle/Resources/config/routing.xml"
-    prefix:   /profile/
+    prefix:   /
 
 friends_login:
     resource: "@FriendsLoginBundle/Resources/config/routing.xml"
     prefix:   /
+
 
 app:
     resource: @AppBundle/Controller/

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Pubudu
@@ -13,48 +14,68 @@ use Symfony\Component\HttpFoundation\Request;
 use FriendsEntityBundle\Entity\Posts;
 use FriendsEntityBundle\Entity\Profile;
 
-class TimelineController extends Controller
-{
-    public function indexAction(Request $request)
-    {
+class TimelineController extends Controller {
+
+    public function indexAction(Request $request) {
         $post = new Posts();
+        $tmp = $_GET['email'];
+        $userMail = null;
+        /*         * **aquiring logged email****** */
+        if (filter_var($tmp, FILTER_VALIDATE_EMAIL)) {
+
+            $userMail = $tmp;
+        } else {
+            // decide where you want to go
+        }
+
+
+        /*         * **aquiring logged email****** */
+
 
         $form = $this->createFormBuilder($post)
-            ->add('content', 'textarea')
-            ->add('post', 'submit', array('label' => 'POST'))
-            ->getForm();
+                ->add('content', 'textarea')
+                ->add('post', 'submit', array('label' => 'POST'))
+                ->getForm();
 
-        $form -> handleRequest($request);
+        $form->handleRequest($request);
 
-        if($form->isValid()){
-            $em = $this -> getDoctrine() -> getManager();
-            $profile = $em -> getRepository('FriendsEntityBundle:Profile') -> find('pubudu.fernando@gmail.com');
-            $post -> setUserEmail($profile);
-            $em -> persist($post);
-            $em -> flush();
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $profile = $em->getRepository('FriendsEntityBundle:Profile')->find($userMail);
+            $post->setUserEmail($profile);
+            $em->persist($post);
+            $em->flush();
 
             //return $this->redirect($this->generateUrl("post_success"));
         }
 
 //        $form -> get('content') -> setData('');
 
+
         return $this->render('FriendsTimelineBundle:Timeline:timeline.html.twig', array(
-            'form' => $form->createView(),
+                    'form' => $form->createView(),
+                    'email' => $userMail,
+                    'posts' => $this -> getPosts(),
         ));
     }
 
-    public function newAction(Request $request)
-    {
+    public function newAction(Request $request) {
         // create a post and give it some dummy data for this example
         $post = new Posts();
 
         $form = $this->createFormBuilder($post)
-            ->add('post', 'text')
-            ->add('Post', 'submit', array('label' => 'Create Post'))
-            ->getForm();
+                ->add('post', 'text')
+                ->add('Post', 'submit', array('label' => 'Create Post'))
+                ->getForm();
 
         return $this->render('FriendsTimelineBundle:Timeline:timeline.html.twig', array(
-            'form' => $form->createView(),
+                    'form' => $form->createView(),
         ));
+    }
+
+    private function getPosts(){
+        $em = $this -> getDoctrine() -> getManager();
+        $posts = $em -> getRepository('FriendsEntityBundle:Posts') -> findAll();
+        return $posts;
     }
 }

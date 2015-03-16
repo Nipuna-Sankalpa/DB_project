@@ -1,0 +1,139 @@
+{% extends "::base.html.twig"%}
+
+{% block styleSheet%}<link href="{{asset('css/profileCustom.css')}}" rel="stylesheet">{% endblock %}
+
+{% block body %}
+
+
+    <div class="row">
+        <div class="col-md-3">
+
+            <div id="image">                
+                <div style="width: 200px; height: 200px; border: 2px lightskyblue solid; margin-top: 20px">Profile Picture</div>
+            </div>
+
+            <div id="navBox" style="margin-top: 1em;">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-info">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    View Profile
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <ul>
+                                    <li>My Posts</li>
+                                    <li><a href="{{ path('profile', { 'email': entity.email }) }}">Friends</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-info">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Setup Profile
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <ul>
+                                    <li><a href="{{ path('profile_edit', { 'email': entity.email }) }}">Edit profile</a></li>
+                                    <li>Settings</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--*************************************************************************************************-->
+        <div class="container">
+            <form class="form-signin" method="POST" action="{{path('profile_delete', { 'email': entity.email })}}" data-validate="parsley">
+                <div class="col-md-9">
+                    <h2 style="font-family:  Trebuchet MS, Arial, Helvetica, sans-serif;">{{entity.firstName}} {{entity.lastName}}</h2>            
+                    <div class="panel-body">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#personalSection">Personal and Education</a></li>
+                            <li><a data-toggle="tab" href="#educationSection">Contact Info</a></li>
+                            <li><a data-toggle="tab" href="#workSection">About me</a></li>
+
+                        </ul>
+                        <div class="tab-content">
+                            <div id="personalSection" class="tab-pane fade in active">
+                                <dl class="dl-horizontal" style="margin-top: 10px">
+                                    <p style="font-family:  Trebuchet MS, Arial, Helvetica, sans-serif; font-size: 20px"><b>Personal:</b></p>
+                                    <dt><span class="glyphicon glyphicon-envelope"></span> E-mail :</dt>
+                                    <dd>{{entity.email}}</dd><br/>
+                                    <dt><span class="glyphicon glyphicon-phone" ></span> Mobile :</dt>
+                                    <dd>{{entity.mobileNumber}}</dd><br/>
+                                    <dt><span class="glyphicon glyphicon glyphicon-calendar" ></span> Date of Birth :</dt>
+                                    <dd>{{entity.dob}}</dd><br/>  
+                                    <dt><span class="glyphicon glyphicon-circle-arrow-up" ></span> Gender :</dt>
+                                    <dd>{{entity.gender}}</dd><br/>
+                                    <dt><span class="glyphicon glyphicon-home" ></span> Hometown :</dt>
+                                    <dd>{{entity.hometown}}</dd><br/> 
+                                    <dt><span class="glyphicon glyphicon-flag" ></span> Country :</dt>
+                                    <dd>{{entity.country}}</dd> 
+                                    <hr/>
+                                    <p style="font-family:  Trebuchet MS, Arial, Helvetica, sans-serif; font-size: 20px"><b>Education:</b></p>
+                                    <dt><span class="glyphicon glyphicon-book"></span> School  :</dt>
+                                    <dd>{{entity.school}}</dd><br/>
+                                    <dt><span class="glyphicon glyphicon-education"></span> High School  :</dt>
+                                    <dd>{{entity.higherEducation}}</dd><br/>
+                                </dl>
+                            </div>
+                            <div id="educationSection" class="tab-pane fade">
+                                <dl class="dl-horizontal" style="margin-top: 10px">
+                                    <dt><span class="glyphicon glyphicon-envelope"></span> E-mail :</dt>
+                                    <dd>{{entity.email}}</dd><br/>
+                                    <dt><span class="glyphicon glyphicon-phone" ></span> Mobile :</dt>
+                                    <dd>{{entity.mobileNumber}}</dd><br/>
+                                    <dt><span class="glyphicon glyphicon-phone-alt" ></span> Home Phone :</dt>
+                                    <dd>{{entity.homePhone}}</dd><br/>
+                                    <dt><span class="glyphicon glyphicon-arrow-right" ></span> Address :</dt>
+                                    <dd>No: {{entity.streetNumber}},<br>{{ entity.street }},<br>{{ entity.city }},<br>{{ entity.country }}</dd><br/>
+                                    <dt><span class="glyphicon glyphicon-arrow-up" ></span> LinkedIn :</dt>
+                                    <dd>{{entity.linkedIn}}</dd><br/>
+                                    <dt><span class="glyphicon glyphicon-bookmark" ></span> Blog :</dt>
+                                    <dd>{{entity.blog}}</dd><br/>
+                                </dl>
+
+                            </div>
+                            <div id="workSection" class="tab-pane fade">
+                                <dl class="dl-horizontal" style="margin-top: 10px">
+                                    <dt><span class="glyphicon glyphicon-user"></span> Description  :</dt>
+                                    <dd>{{entity.description}}</dd><br/>
+                                    <dt><span class="glyphicon glyphicon-heart"></span> Relationship :</dt>
+                                    <dd>{{entity.relationshipStatus}}</dd><br/>
+                                    <dt><span class="glyphicon glyphicon-tower"></span> Religious View  :</dt>
+                                    <dd>{{entity.religion}}</dd><br/>
+                                    <hr/>
+                                    <dt><span class="glyphicon glyphicon-book"></span> Favorite Book  :</dt>
+                                    <dd>{{entity.favoriteBook}}</dd><br/>
+                                    <dt><span class="glyphicon glyphicon-film"></span> Favorite Film  :</dt>
+                                    <dd>{{entity.favoriteFilm}}</dd><br/>
+                                    <dt><span class="glyphicon glyphicon-music"></span> Favorite Song  :</dt>
+                                    <dd>{{entity.favoriteSong}}</dd><br/>
+                                    <dt><span class="glyphicon glyphicon-check"></span> Favorite Sport  :</dt>
+                                    <dd>{{entity.favoriteSport}}</dd><br/>
+                                    <dt><span class="glyphicon glyphicon-star"></span> Favorite Food  :</dt>
+                                    <dd>{{entity.favoriteFood}}</dd><br/>
+                                    <dt><span class="glyphicon glyphicon-star-empty"></span> Favorite Drink  :</dt>
+                                    <dd>{{entity.favoriteDrink}}</dd><br/>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-left: 960px;">{{form(delete_form)}}</div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

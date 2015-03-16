@@ -1,0 +1,33 @@
+{% extends '::base.html.twig' %}
+
+
+
+{% block linkProfile%}
+    {{path('friends_profile_homepage',{'email':email})}}
+{% endblock%}
+
+{% block body -%}
+    <h1>My Friends</h1> 
+    <div style="margin: 3em;">
+        {% for entity in entities %}
+            {%if entity.email!=email%}
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ entity.firstName }} {{ entity.lastName }}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div>
+                            {{ entity.hometown }}<br>
+                            {{ entity.description }}
+                            <a href="{{ path('profile_show', { 'email': entity.email }) }}" class="btn btn-info" style="float: right; margin-right: 20px; margin-top: -25px">View Full Profile >></a>
+                        </div>
+                        <div style="clear: left;"></div>
+                    </div>
+                </div>
+                
+
+
+            {% endif%}
+        {% endfor %}
+    </div>
+{% endblock %}

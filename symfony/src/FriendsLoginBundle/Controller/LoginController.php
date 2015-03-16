@@ -17,19 +17,34 @@ class LoginController extends Controller {
             $user_pass = sha1($req->get('password'));
 
 //derive entity manager
+
+//            $em = $this->getDoctrine()->getEntityManager();
+//            $repository = $em->getRepository('FriendsEntityBundle:Profile');
+//            $user = $repository->findOneBy(array('email' => $user_mail, 'password' => $user_pass));
+//
+//            if ($user) {
+//                //if user exist redirect to profile
+//                return new Response('Login completed'.($this->getUser()->getUsername()));
+//            } else {
+//                //render sign up page with error message
+//                return new Response('Login Error');
+//            }
+
             $em = $this->getDoctrine()->getEntityManager();
-            $repository = $em->getRepository('FriendsEntityBundle:Profile');
+            $repository = $em->getRepository('FriendsLoginBundle:Profile');
             $user = $repository->findOneBy(array('email' => $user_mail, 'password' => $user_pass));
 
             if ($user) {
                 //if user exist redirect to profile
-                return new Response('Login completed'.($this->getUser()->getUsername()));
+                return $this->redirect($this->generateUrl("friends_timeline_homepage", array('email' => $user_mail)));
             } else {
                 //render sign up page with error message
-                return new Response('Login Error');
+                return $this->render('FriendsLoginBundle:Login:login.html.twig', array('msg' => TRUE,
+                    'content' => "login credentials"
+                ));
+
             }
         }
-
         return $this -> render('FriendsLoginBundle:Login:login.html.twig');
     }
 

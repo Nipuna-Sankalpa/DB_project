@@ -3,6 +3,11 @@
 {% block styleSheet %}
     <link href="{{asset('css/timeline.css')}}" rel="stylesheet">
 {% endblock %}
+{# Setting UP profile Link #}
+{% block linkProfile%}
+{{path('friends_profile_homepage',{'email':email})}}
+{% endblock%}
+
 
 {% block body %}
 
